@@ -1,0 +1,505 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="us-patent-grant">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="us-bibliographic-data-grant">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="publication-reference">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="document-id">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:string" name="country"/>
+                          <xs:element type="xs:int" name="doc-number"/>
+                          <xs:element type="xs:string" name="kind"/>
+                          <xs:element type="xs:int" name="date"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="application-reference">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="document-id">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:string" name="country"/>
+                          <xs:element type="xs:int" name="doc-number"/>
+                          <xs:element type="xs:int" name="date"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute type="xs:string" name="appl-type"/>
+                </xs:complexType>
+              </xs:element>
+              <xs:element type="xs:byte" name="us-application-series-code"/>
+              <xs:element name="classifications-ipcr">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="classification-ipcr" maxOccurs="unbounded" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="ipc-version-indicator">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element type="xs:int" name="date"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element type="xs:string" name="classification-level"/>
+                          <xs:element type="xs:string" name="section"/>
+                          <xs:element type="xs:byte" name="class"/>
+                          <xs:element type="xs:string" name="subclass"/>
+                          <xs:element type="xs:byte" name="main-group"/>
+                          <xs:element type="xs:byte" name="subgroup"/>
+                          <xs:element type="xs:string" name="symbol-position"/>
+                          <xs:element type="xs:string" name="classification-value"/>
+                          <xs:element name="action-date">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element type="xs:int" name="date"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="generating-office">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element type="xs:string" name="country"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element type="xs:string" name="classification-status"/>
+                          <xs:element type="xs:string" name="classification-data-source"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="classifications-cpc">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="main-cpc">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="classification-cpc">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="cpc-version-indicator">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element type="xs:int" name="date"/>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element type="xs:string" name="section"/>
+                                <xs:element type="xs:byte" name="class"/>
+                                <xs:element type="xs:string" name="subclass"/>
+                                <xs:element type="xs:byte" name="main-group"/>
+                                <xs:element type="xs:byte" name="subgroup"/>
+                                <xs:element type="xs:string" name="symbol-position"/>
+                                <xs:element type="xs:string" name="classification-value"/>
+                                <xs:element name="action-date">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element type="xs:int" name="date"/>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element name="generating-office">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element type="xs:string" name="country"/>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element type="xs:string" name="classification-status"/>
+                                <xs:element type="xs:string" name="classification-data-source"/>
+                                <xs:element type="xs:string" name="scheme-origination-code"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="further-cpc">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="classification-cpc" maxOccurs="unbounded" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="cpc-version-indicator">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element type="xs:int" name="date"/>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element type="xs:string" name="section"/>
+                                <xs:element type="xs:byte" name="class"/>
+                                <xs:element type="xs:string" name="subclass"/>
+                                <xs:element type="xs:short" name="main-group"/>
+                                <xs:element type="xs:short" name="subgroup"/>
+                                <xs:element type="xs:string" name="symbol-position"/>
+                                <xs:element type="xs:string" name="classification-value"/>
+                                <xs:element name="action-date">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element type="xs:int" name="date"/>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element name="generating-office">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element type="xs:string" name="country"/>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element type="xs:string" name="classification-status"/>
+                                <xs:element type="xs:string" name="classification-data-source"/>
+                                <xs:element type="xs:string" name="scheme-origination-code"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="invention-title">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute type="xs:string" name="id"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="us-references-cited">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="us-citation" maxOccurs="unbounded" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="patcit" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="document-id">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element type="xs:string" name="country"/>
+                                      <xs:element type="xs:string" name="doc-number"/>
+                                      <xs:element type="xs:string" name="kind"/>
+                                      <xs:element type="xs:string" name="name" minOccurs="0"/>
+                                      <xs:element type="xs:int" name="date"/>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                              <xs:attribute type="xs:byte" name="num" use="optional"/>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="nplcit" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element type="xs:string" name="othercit"/>
+                              </xs:sequence>
+                              <xs:attribute type="xs:byte" name="num"/>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element type="xs:string" name="category"/>
+                          <xs:element type="xs:string" name="classification-cpc-text" minOccurs="0"/>
+                          <xs:element name="classification-national" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element type="xs:string" name="country"/>
+                                <xs:element type="xs:string" name="main-classification"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element type="xs:byte" name="number-of-claims"/>
+              <xs:element type="xs:byte" name="us-exemplary-claim"/>
+              <xs:element name="us-field-of-classification-search">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="classification-national">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:string" name="country"/>
+                          <xs:element type="xs:string" name="main-classification"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="figures">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:byte" name="number-of-drawing-sheets"/>
+                    <xs:element type="xs:byte" name="number-of-figures"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="us-related-documents">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="continuation">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="relation">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="parent-doc">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="document-id">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element type="xs:string" name="country"/>
+                                            <xs:element type="xs:string" name="doc-number"/>
+                                            <xs:element type="xs:int" name="date"/>
+                                          </xs:sequence>
+                                        </xs:complexType>
+                                      </xs:element>
+                                      <xs:element type="xs:string" name="parent-status"/>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element name="child-doc">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="document-id">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element type="xs:string" name="country"/>
+                                            <xs:element type="xs:int" name="doc-number"/>
+                                          </xs:sequence>
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="related-publication">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="document-id">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element type="xs:string" name="country"/>
+                                <xs:element type="xs:long" name="doc-number"/>
+                                <xs:element type="xs:string" name="kind"/>
+                                <xs:element type="xs:int" name="date"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="us-parties">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="us-applicants">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="us-applicant">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="addressbook">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element type="xs:string" name="orgname"/>
+                                      <xs:element name="address">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element type="xs:string" name="city"/>
+                                            <xs:element type="xs:string" name="country"/>
+                                          </xs:sequence>
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element name="residence">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element type="xs:string" name="country"/>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                              <xs:attribute type="xs:byte" name="sequence"/>
+                              <xs:attribute type="xs:string" name="app-type"/>
+                              <xs:attribute type="xs:string" name="designation"/>
+                              <xs:attribute type="xs:string" name="applicant-authority-category"/>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="inventors">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="inventor" maxOccurs="unbounded" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="addressbook">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element type="xs:string" name="last-name"/>
+                                      <xs:element type="xs:string" name="first-name"/>
+                                      <xs:element name="address">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element type="xs:string" name="city"/>
+                                            <xs:element type="xs:string" name="country"/>
+                                          </xs:sequence>
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                              <xs:attribute type="xs:byte" name="sequence" use="optional"/>
+                              <xs:attribute type="xs:string" name="designation" use="optional"/>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="agents">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="agent">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="addressbook">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element type="xs:string" name="orgname"/>
+                                      <xs:element name="address">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element type="xs:string" name="country"/>
+                                          </xs:sequence>
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                              <xs:attribute type="xs:byte" name="sequence"/>
+                              <xs:attribute type="xs:string" name="rep-type"/>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="assignees">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="assignee">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="addressbook">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element type="xs:string" name="orgname"/>
+                                <xs:element type="xs:byte" name="role"/>
+                                <xs:element name="address">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element type="xs:string" name="city"/>
+                                      <xs:element type="xs:string" name="country"/>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="examiners">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="primary-examiner">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:string" name="last-name"/>
+                          <xs:element type="xs:string" name="first-name"/>
+                          <xs:element type="xs:short" name="department"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="assistant-examiner">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:string" name="last-name"/>
+                          <xs:element type="xs:string" name="first-name"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="abstract">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="p">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute type="xs:string" name="id"/>
+                      <xs:attribute type="xs:byte" name="num"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute type="xs:string" name="id"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute type="xs:string" name="lang"/>
+      <xs:attribute type="xs:string" name="dtd-version"/>
+      <xs:attribute type="xs:string" name="file"/>
+      <xs:attribute type="xs:string" name="status"/>
+      <xs:attribute type="xs:string" name="id"/>
+      <xs:attribute type="xs:string" name="country"/>
+      <xs:attribute type="xs:int" name="date-produced"/>
+      <xs:attribute type="xs:int" name="date-publ"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
